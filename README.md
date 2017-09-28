@@ -1,7 +1,7 @@
 <h1 align="center">Badge Tracker</h1>
 <h3>Team Members: Steven Childrey, Justin Ridgway, Robel Shibeshi, Jeffrey Beebe</h3>
 <h4>Project Overview</h4>
-<p>RUAchievements will be an interactive, web-based project, in which students may earn
+<p>Badge Tracker will be an interactive, web-based project, in which students may earn
 virtual “badges” in each of their classes, signifying their accomplishments.
 After creating an account students will be able to view all badges that can be earned,
 track the badges they’ve already earned, and view badges that their classmates have earned if
