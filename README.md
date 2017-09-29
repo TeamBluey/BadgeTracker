@@ -19,10 +19,11 @@ granted the new badge.
 The goal of this project is to allow students to track their progress and accomplishments
 in their classes and create a friendly competition between classmates to see who can earn the
 most badges.</p>
-<h2>Sub-directories We plan on having</h2>
+<h2>Subdirectories</h2>
 <ul>
   <li>CSS         -will hold all the css files</li>
   <li>JavaScript  -will hold any scripts</li> 
   <li>PHP         -will hold the files for all pages and any addtional files we may need</li>
   <li>SQL         -will hold the code to access the database</li>
+  <li>Images         -will hold all images used</li>
 </ul>
