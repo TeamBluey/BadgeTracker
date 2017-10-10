@@ -3,7 +3,7 @@
 <head>
     <title>Badge Tracker | Register</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="register.css" rel="stylesheet" type="text/css">
+    <link href="CSS/register.css" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
 </head>
