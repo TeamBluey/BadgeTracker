@@ -10,7 +10,7 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-offset-3 col-sm-6 col-xs-12 loginContainer">
+            <div class="col-xs-offset-1 col-xs-10 col-sm-offset-3 col-sm-6 loginContainer">
                 <form action='' method='POST'>
                     <h3 class='title'>Register</h3>
                     <!-- 
