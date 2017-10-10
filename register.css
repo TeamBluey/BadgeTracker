@@ -1,0 +1,53 @@
+body {
+    height:100vh;
+    overflow-y:hidden;
+    background-image: url('https://sso.radford.edu/idp/images/10.jpg');
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+    color: black;
+}
+.loginContainer {
+    text-align: center;
+    border-radius: 15px;
+    border:7px ridge white;
+    background-image: url('https://sso.radford.edu/idp/images/red_bg_pattern.jpg');
+    margin-top: 100px;
+}
+.typeInputs {
+    display: block;
+    margin: 10px auto;
+    width: 320px;
+    border-radius: 10px;
+    text-align: center;
+    border:1px solid navy;
+}
+.submit {
+    border-radius: 10px;
+    border:1px solid navy;
+    margin-top: 10px;
+    width: 100px;
+}
+.title {
+    color: white;
+    margin-bottom: 15px;
+}
+p {
+    color: white;
+    font-weight: bold;
+}
+hr {
+    width: 80%;
+}
+a:link {
+    color: navy;
+}
+a:visited {
+    color: cyan;
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .loginContainer {
+        margin-top:150px;
+        padding-left: 10px;
+        margin-right: 10px;
+    }
+}
