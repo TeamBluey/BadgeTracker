@@ -122,7 +122,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-offset-1 col-xs-10 col-sm-offset-3 col-sm-6 loginContainer">
-                <form action='' method='POST'>
+                <form action='register.php' method='POST'>
                     <h3 class='title'>Register</h3>
                     <!-- 
                         Need
