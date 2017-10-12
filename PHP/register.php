@@ -69,7 +69,7 @@
 			$error = true;
 		}
 		else { //check for existing duplicate
-			$query = "SELECT * FROM Students WHERE userName='$username'";
+			$query = "SELECT * FROM Students WHERE Userame='$username'";
 			if($result = mysqli_query($connection, $query)){
 				$rowCount = mysqli_num_rows($result);
 				if($rowCount != 0){
@@ -84,7 +84,7 @@
             echo "<span class='registrationMessage red'>Enter a valid email address</span>";
         }
         else{ //Check for already existing Email
-			$query = "INSERT INTO Students(SID, Password, Username, FName, LName, ClassRank, Email) VALUES($sid,'$password1','$username','$fName', '$LName', '$rank', '$email')";
+			$query = "SELECT * FROM Students WHERE Email = '$email'";
 			if($result = mysqli_query($connection, $query)){
 				$rowCount = mysqli_num_rows($result);
 				if($rowCount != 0){
@@ -93,10 +93,10 @@
 				}
 			}
         }
-        //EMAIL VALIDATION
+        //PASSWORD VALIDATION
         if($password1 == $password2 && $error != true) {
 			$password = password_hash($password1, PASSWORD_BCRYPT);
-			$query = "INSERT INTO Students(userName, userEmail,userPass) VALUES('$username','$email','$password')";
+			$query = "INSERT INTO Students(SID, Password, Username, FName, LName, ClassRank, Email) VALUES($sid,'$password','$username','$fName', '$LName', '$rank', '$email')";
 			if(mysqli_query($connection, $query)){
 				echo "<span class='registrationMessage green'>Registration successful, you can now login!</span>";
 			}
