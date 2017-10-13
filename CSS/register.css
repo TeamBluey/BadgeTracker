@@ -5,6 +5,7 @@ body {
     background-size:100% 100%;
     background-repeat:no-repeat;
     color: black;
+    font-family: 'Roboto', sans-serif;
 }
 .loginContainer {
     text-align: center;
@@ -43,6 +44,16 @@ a:link {
 }
 a:visited {
     color: cyan;
+}
+.registrationMessage{
+	display: block;
+	text-align: center;
+}
+.red{
+	color: red;
+}
+.green{
+	color: green;
 }
 @media all and (min-width : 320px) and (max-width : 767px) {
     .loginContainer {
