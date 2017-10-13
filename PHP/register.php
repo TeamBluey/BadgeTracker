@@ -6,7 +6,7 @@
         $error = false; //will be true if there is an error
 
         //USERNAME
-        $username = $_POST['usernameInput'];
+        $username = $_POST['username'];
 		$username = mysqli_real_escape_string($connection, $username);
 		$username = trim($username);
 		$username = strip_tags($username);
@@ -53,7 +53,6 @@
 		$rank = trim($rank);
 		$rank = strip_tags($rank);
         $rank = htmlspecialchars($rank);
-        echo "<span>Made it 1</span>";
         if(empty($rank)){
             $error = true;
             echo "<span class='registrationMessage red'>You must choose a class rank!</span>";
@@ -61,13 +60,12 @@
         if($rank != "fr" && $rank != "so"  && $rank != "jr" && $rank != "sr"){
             $error = true;
         }
-        echo "<span>Made it 2</span>";
         //VALIDATE USERNAME
         if(empty($username) || strlen($username) < 4){
-			$error = true;
+            $error = true;
 		}
 		if(!preg_match("/^[a-z\d_-]{4,20}$/i", $username)){
-			$error = true;
+            $error = true;
 		}
 		else { //check for existing duplicate
 			$query = "SELECT * FROM Students WHERE Userame='$username'";
@@ -77,10 +75,8 @@
 					$error = true;
 					echo "<span class='registrationMessage red'>Username is already taken, please choose a different one!</span>";
 				}
-			}
+            }
         }
-        echo "<span>Made it 3</span>";
-        echo $error;
         //VALIDATE EMAIL
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
             $error = true;
@@ -96,10 +92,9 @@
 				}
 			}
         }
-        echo "<span>Made it 4</span>";
         //PASSWORD VALIDATION
         if($password1 == $password2 && $error != true) {
-			$password = password_hash($password1, PASSWORD_BCRYPT);
+            $password = password_hash($password1, PASSWORD_BCRYPT);
 			$query = "INSERT INTO Students(SID, Password, Username, FName, LName, ClassRank, Email) VALUES($sid,'$password','$username','$fName', '$LName', '$rank', '$email')";
 			if(mysqli_query($connection, $query)){
 				echo "<span class='registrationMessage green'>Registration successful, you can now login!</span>";
