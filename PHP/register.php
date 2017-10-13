@@ -98,7 +98,7 @@
             $password = hash("sha256", $password1);
 			$query = "INSERT INTO Students(SID, Password, Username, FName, LName, ClassRank, Email) VALUES($sid,'$password','$username','$fName', '$LName', '$rank', '$email')";
 			if(mysqli_query($connection, $query)){
-				echo "<span class='registrationMessage green'>Registration successful, you can now login!</span>";
+                echo "<span class='registrationMessage green'>Registration successful, you can now <a href='login.php'>login!</a></span>";
 			}
 			else {
 				echo "<span class='registrationMessage red'>Error, please try again later.</span>";
