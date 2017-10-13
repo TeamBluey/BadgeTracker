@@ -63,7 +63,7 @@
 			<div class="col-sm-3"></div> <!-- for formatting purposes -->
 			
 			<div class="col-sm-6" id="loginDiv">
-				<form action="" method="POST" id="login">
+				<form action="validate.php" method="POST" id="login">
 					<h3>BADGE TRACKER LOGIN</h3>
 					<input type="email" name="email" placeholder="Enter Email">
 					<input type="password" name="pwd" placeholder="Enter Password">
