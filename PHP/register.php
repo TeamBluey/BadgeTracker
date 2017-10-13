@@ -53,6 +53,7 @@
 		$rank = trim($rank);
 		$rank = strip_tags($rank);
         $rank = htmlspecialchars($rank);
+        echo "<span>Made it 1</span>";
         if(empty($rank)){
             $error = true;
             echo "<span class='registrationMessage red'>You must choose a class rank!</span>";
@@ -60,7 +61,7 @@
         if($rank != "fr" && $rank != "so"  && $rank != "jr" && $rank != "sr"){
             $error = true;
         }
-
+        echo "<span>Made it 2</span>";
         //VALIDATE USERNAME
         if(empty($username) || strlen($username) < 4){
 			$error = true;
@@ -78,6 +79,7 @@
 				}
 			}
         }
+        echo "<span>Made it 3</span>";
         //VALIDATE EMAIL
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
             $error = true;
@@ -93,6 +95,7 @@
 				}
 			}
         }
+        echo "<span>Made it 4</span>";
         //PASSWORD VALIDATION
         if($password1 == $password2 && $error != true) {
 			$password = password_hash($password1, PASSWORD_BCRYPT);
