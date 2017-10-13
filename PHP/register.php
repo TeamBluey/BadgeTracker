@@ -94,7 +94,8 @@
         }
         //PASSWORD VALIDATION
         if($password1 == $password2 && $error != true) {
-            $password = password_hash($password1, PASSWORD_BCRYPT);
+            //$password = password_hash($password1, PASSWORD_BCRYPT);
+            $password = crypt($password1);
 			$query = "INSERT INTO Students(SID, Password, Username, FName, LName, ClassRank, Email) VALUES($sid,'$password','$username','$fName', '$LName', '$rank', '$email')";
 			if(mysqli_query($connection, $query)){
 				echo "<span class='registrationMessage green'>Registration successful, you can now login!</span>";
