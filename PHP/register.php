@@ -80,6 +80,7 @@
 			}
         }
         echo "<span>Made it 3</span>";
+        echo $error;
         //VALIDATE EMAIL
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
             $error = true;
