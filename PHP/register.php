@@ -115,6 +115,7 @@
     <title>Badge Tracker | Register</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="../CSS/register.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
 </head>
@@ -133,13 +134,13 @@
                         PW
                         ClassRank
                     -->
-                    <input type='email' name='email' placeholder='Email Address' class='typeInputs'>
-                    <input type='number' name='SID' placeholder='ID Number' class='typeInputs'>
-                    <input type="text" name="username" placeholder='Username' class='typeInputs'>
-                    <input type="text" name="FName" placeholder='First Name' class='typeInputs'>
-                    <input type="text" name="LName" placeholder='Last Name' class='typeInputs'>
-                    <input type="password" name="pwd" placeholder='Password' class='typeInputs'>
-                    <input type="password" name="pwdConfirm" placeholder='Confirm Password' class='typeInputs'>
+                    <input type='email' name='email' placeholder='Email Address' class='typeInputs' required>
+                    <input type='number' name='SID' placeholder='ID Number' class='typeInputs' required>
+                    <input type="text" name="username" placeholder='Username' class='typeInputs' requred>
+                    <input type="text" name="FName" placeholder='First Name' class='typeInputs' required>
+                    <input type="text" name="LName" placeholder='Last Name' class='typeInputs' required>
+                    <input type="password" name="pwd" placeholder='Password' class='typeInputs' required>
+                    <input type="password" name="pwdConfirm" placeholder='Confirm Password' class='typeInputs' required>
                     <select name="rank" id="" class='typeInputs'>
                         <option value="fr">Freshman</option>
                         <option value="so">Sophomore</option>
