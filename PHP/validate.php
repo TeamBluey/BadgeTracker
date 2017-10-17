@@ -1,6 +1,7 @@
 <?php
 error_reporting(E_ALL);
-require_once('../SQL/dbconn.php');
+require_once('../SQL/dbConn.php');
+session_start();
 
 if( isset($_POST['email']) && isset($_POST['pwd']) ) {
 	// store and sanitize user input
@@ -17,14 +18,19 @@ if( isset($_POST['email']) && isset($_POST['pwd']) ) {
 	$pwdHash = hash("sha256", $pwd);
 	
 	// create query and fetch result
-	$query = "SELECT Password FROM STUDENTS WHERE Email = '$email'";
+	$query = "SELECT Password FROM Students WHERE Email = '".$email."'";
 	$result = mysqli_query($connection, $query);
 	
-	// check for equality between user input and stored password
-	if( $pwdHash === $result )
-		header('Location: myProfile.php');
-	else
-		echo "Invalid Email or Password";
+	if($result) {
+		while ($row = mysqli_fetch_assoc($result)) {
+			if( $pwdHash === $row["Password"] ) {
+				$_SESSION['loginEmail'] = $email;
+				header("Location: myProfile.php");
+			}
+			else
+				echo "Invalid Email or Password";
+		}
+	}
 }
 mysqli_close($connection);
 ?>
