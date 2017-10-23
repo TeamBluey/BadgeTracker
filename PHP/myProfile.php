@@ -1,6 +1,8 @@
 <?php
 error_reporting(E_ALL);
+require_once('userUtils.php');
 session_start();
+$sid = $_SESSION['SID'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,7 +67,8 @@ session_start();
 							</div>
 						</td>
 						<td id="userInfo">
-							<h1>Username</h1>
+							<h1><?php echo getUsername($sid); ?></h1>
+							<h1>USERNAME</h1>
 							<h3># of Badges Earned:</h3> <!-- PHP TO CALCULATE NUMBER OF BADGES EARNED -->
 							<h3>BadgeTracker Score:</h3> <!-- PHP TO GRAB USERS TOTAL SCORE -->
 						</td>
