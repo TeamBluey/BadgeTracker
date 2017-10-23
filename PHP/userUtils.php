@@ -7,11 +7,10 @@ function getUserInitials( $userId ) {
 	$result = mysqli_query($connection, $query);
 	$row = mysqli_fetch_assoc($result);
 	
-	$fname = $row['FName'];
-	$lname = $row['LName'];
+	$fName = $row['FName'];
+	$lName = $row['LName'];
 	
-	$initials = "$fname[0]" . "$lname[0]";
-	return $initials;
+	return "$fName[0]" . "$lName[0]";
 }
 
 function getUsername( $userId ) {
