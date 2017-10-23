@@ -18,19 +18,16 @@ if( isset($_POST['email']) && isset($_POST['pwd']) ) {
 	$pwdHash = hash("sha256", $pwd);
 	
 	// create query and fetch result
-	$query = "SELECT Password FROM Students WHERE Email = '".$email."'";
+	$query = "SELECT SID,Password FROM Students WHERE Email = '".$email."'";
 	$result = mysqli_query($connection, $query);
-	
-	if($result) {
-		while ($row = mysqli_fetch_assoc($result)) {
-			if( $pwdHash === $row["Password"] ) {
-				$_SESSION['loginEmail'] = $email;
-				header("Location: myProfile.php");
-			}
-			else
-				echo "Invalid Email or Password";
-		}
+	$row = mysqli_fetch_assoc($result);
+
+	if( $pwdHash === $row["Password"] ) {
+		$_SESSION['SID'] = $row["SID"];
+		header("Location: myProfile.php");
 	}
+	else
+		echo "Invalid Email or Password";
 }
 mysqli_close($connection);
 ?>
