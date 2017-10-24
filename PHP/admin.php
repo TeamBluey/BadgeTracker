@@ -126,6 +126,15 @@
         <div class="row">
             <div class="col-xs-12 col-sm-offset-2 col-sm-8 tableDiv">
                 <h2 class='sqlTitle'>Run SQL</h2>
+                <p class='selectStatement'>Select 
+                    <select>
+                        <option value='*'>*</select>
+                    </select>
+                    FROM
+                    <select>
+                        <option value='Students'>Students</select>
+                    </select>
+                </p>
             </div>
         </div>
     </div>
