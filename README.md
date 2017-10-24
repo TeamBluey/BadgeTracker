@@ -22,7 +22,7 @@ most badges.</p>
 <h2>Subdirectories</h2>
 <ul>
   <li>CSS         - will hold all the css files</li>
-  <li>JavaScript  - will hold any scripts</li> 
+  <li>JS          - will hold any JavaScript files</li> 
   <li>PHP         - will hold the files for all pages and any addtional files we may need</li>
   <li>SQL         - will hold the code to access the database</li>
   <li>Images      - will hold all images used</li>
