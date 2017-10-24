@@ -9,6 +9,7 @@ body {
     text-align: center;
     padding-top: 20px;   
     margin-top: 0px;
+    color: white;
 }
 .sqlTitle {
     text-align: center;
@@ -18,6 +19,7 @@ body {
     margin-top: 10px;
     padding-bottom: 20px;
     margin-bottom: 0;
+    color: white;
 }
 table {
     margin: auto;
