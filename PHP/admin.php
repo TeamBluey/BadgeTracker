@@ -10,7 +10,7 @@
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous">
     </script>
-    <script src="admin.js"></script>
+    <script src="../JS/admin.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
