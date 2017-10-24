@@ -41,7 +41,6 @@
                         <td>Delete</td>
                     </tr>
                     </thead>
-                    <!-- Examples for now -->
                     <tbody>
                     <!-- ACTUALLY GRABBING FROM DB -->
                     <?php
@@ -91,18 +90,31 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>Steven Childrey</td>
-                        <td>Answer a question in class</td>
-                        <td>10/11/2017</td>
-                        <td>5</td>
-                    </tr>
-                    <tr>
-                        <td>Jeff Beebe</td>
-                        <td>Turn in homework early</td>
-                        <td>9/27/2017</td>
-                        <td>5</td>
-                    </tr>
+                    <!-- Pulling from DB -->
+                    <?php
+                        $query = "SELECT * FROM Student_Badges WHERE Status = 'Achieved'";
+                        $result = mysqli_query($connection, $query);
+                        if (mysqli_num_rows($result) > 0){
+                            while($row = mysqli_fetch_assoc($result)){
+                                //Get Name from SID
+                                $sid = $row['SID'];
+                                $nameQ = "SELECT FName, LName FROM Students WHERE SID = '$sid'";
+                                $nameResult = mysqli_query($connection, $nameQ);
+                                $nameRow = mysqli_fetch_row($nameResult);
+                                //Get Decription from BID
+                                $bid = $row['BID'];
+                                $bidQ = "SELECT Description, PointValue FROM Badges WHERE BID = '$bid'";
+                                $bidResult = mysqli_query($connection, $bidQ);
+                                $bidRow = mysqli_fetch_row($bidResult);
+                                echo "<tr>";
+                                echo "<td>" . $nameRow[0] . " " . $nameRow[1] . "</td>";
+                                echo "<td>" . $bidRow[0] . "</td>";
+                                echo "<td>" . $row['Date'] . "</td>";
+                                echo "<td>" . $bidRow[1] . "</td>";
+                                echo "</tr>";
+                            }
+                        }
+                    ?>
                     </tbody>
                 </table>
             </div>
