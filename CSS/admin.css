@@ -1,0 +1,127 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+.header {
+    background-image: url('https://sso.radford.edu/idp/images/red_bg_pattern.jpg');    
+}
+.title {
+    text-align: center;
+    padding-top: 20px;   
+    margin-top: 0px;
+}
+.sqlTitle {
+    text-align: center;
+}
+.className {
+    text-align: center;
+    margin-top: 10px;
+    padding-bottom: 20px;
+    margin-bottom: 0;
+}
+table {
+    margin: auto;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 100%;
+}
+th {
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+.tableTitle {
+    margin: 10px 0px 10px 0px;
+}
+thead tr:nth-child(2) {
+    border-bottom: 1px solid black;
+    font-weight: bold;
+}
+tbody tr:nth-child(odd) {
+    background-color: lightgrey;
+}
+td {
+    padding: 6px;
+}
+.dangerBtn {
+    background-color: red;
+    border: none;
+}
+.tabBar {
+    padding-top: 0;
+    margin-top: 0;
+    background-color: lightgray;
+}
+.tabBar button{
+    background-color: lightgray;
+    margin-top: 3px;
+    padding: 10px;
+    border: 1px solid rgba(128, 128, 128, 0.49);
+    border-bottom: none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+button:focus{
+    outline: none;
+}
+.tabBar .pendingBtn{
+    margin-left: 20px;
+    background-color: white;
+}
+.pendingBadgesBody {
+    margin-top: 20px;
+}
+.completedBadgesBody, .sqlBody {
+    display: none;
+    margin-top: 20px;
+}
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+    table::before {
+        content: "Pending Badges";
+        font-size: 20px;
+        font-weight: bold;
+    }
+    table, th, td, tr {
+        display: block;
+        border: none;
+    }
+    tr {
+        width: 100%;
+    }
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    tr {
+        border: 1px solid black;
+        margin-bottom: 10px;
+    }
+    td{
+        border: none;
+        border-bottom: 1px solid grey;
+        position: relative;
+        padding-left: 50%;
+        width: 325px;
+    }
+    td:before {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
+    .pendingBadges td:nth-of-type(1):before { content: "Name:"; }
+    .pendingBadges td:nth-of-type(2):before { content: "Badge Description:"; }
+    .pendingBadges td:nth-of-type(3):before { content: "Date:"; }
+    .pendingBadges td:nth-of-type(4):before { content: "Confirm?"; }
+    .pendingBadges td:nth-of-type(5):before { content: "Delete?"; }
+
+    .completedBadges td:nth-of-type(1):before { content: "Name:"; }
+    .completedBadges td:nth-of-type(2):before { content: "Badge Description:"; }
+    .completedBadges td:nth-of-type(3):before { content: "Date:"; }
+    .completedBadges td:nth-of-type(4):before { content: "Points"; }
+}
