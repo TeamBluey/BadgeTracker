@@ -64,10 +64,22 @@
                         $result = mysqli_query($connection, $query);
                         if (mysqli_num_rows($result) > 0){
                             while($row = mysqli_fetch_assoc($result)){
+                                //Get Name from SID
+                                $sid = $row['SID'];
+                                $nameQ = "SELECT FName, LName FROM Students WHERE SID = '$sid'";
+                                $nameResult = mysqli_query($connection, $nameQ);
+                                $nameRow = mysqli_fetch_row($nameResult);
+                                //Get Decription from BID
+                                $bid = $row['BID'];
+                                $bidQ = "SELECT Description FROM Badges WHERE BID = '$bid'";
+                                $bidResult = mysqli_query($connection, $bidQ);
+                                $bidRow = mysqli_fetch_row($bidResult);
                                 echo "<tr>";
-                                echo "<td>" . $row['SID'] . "</td>";
-                                echo "<td>" . $row['BID'] . "</td>";
+                                echo "<td>" . $nameRow[0] . " " . $nameRow[1] . "</td>";
+                                echo "<td>" . $bidRow[0] . "</td>";
                                 echo "<td>" . $row['Date'] . "</td>";
+                                echo "<td><input type='submit' value='Confirm'></td>";
+                                echo "<td><input type='submit' value='Delete' class='dangerBtn'></td>";
                                 echo "</tr>";
                             }
                         }
