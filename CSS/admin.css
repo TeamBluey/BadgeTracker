@@ -48,6 +48,7 @@ td {
 .dangerBtn {
     background-color: red;
     border: none;
+    color: white;
 }
 .tabBar {
     padding-top: 0;
