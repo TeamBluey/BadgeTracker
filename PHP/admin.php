@@ -57,6 +57,21 @@
                         <td><input type="submit" value="Confirm"></td>
                         <td><input type="submit" value="Delete" class='dangerBtn'></td>
                     </tr>
+                    <!-- ACTUALLY GRABBING FROM DB -->
+                    <?php
+                        require_once('../SQL/dbConn.php');
+                        $query = "SELECT * FROM Student_Badges WHERE Status = 'Pending'";
+                        $result = mysqli_query($connection, $query);
+                        if (mysqli_num_rows($result) > 0){
+                            while($row = mysqli_fetch_assoc($result)){
+                                echo "<tr>";
+                                echo "<td>" . $row['SID'] . "</td>";
+                                echo "<td>" . $row['BID'] . "</td>";
+                                echo "<td>" . $row['Date'] . "</td>";
+                                echo "</tr>";
+                            }
+                        }
+                    ?>
                     </tbody>
                 </table>
             </div>
