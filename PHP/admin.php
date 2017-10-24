@@ -43,20 +43,6 @@
                     </thead>
                     <!-- Examples for now -->
                     <tbody>
-                    <tr>
-                        <td>Steven Childrey</td>
-                        <td>Answer a question in class</td>
-                        <td>10/11/2017</td>
-                        <td><input type="submit" value="Confirm"></td>
-                        <td><input type="submit" value="Delete" class='dangerBtn'></td>
-                    </tr>
-                    <tr>
-                        <td>Steven Childrey</td>
-                        <td>Turn in homework early</td>
-                        <td>9/27/2017</td>
-                        <td><input type="submit" value="Confirm"></td>
-                        <td><input type="submit" value="Delete" class='dangerBtn'></td>
-                    </tr>
                     <!-- ACTUALLY GRABBING FROM DB -->
                     <?php
                         require_once('../SQL/dbConn.php');
