@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 require_once('../SQL/dbConn.php');
 
 function getUserInitials( $userId ) {
-	$query = "SELECT FName,LName FROM Students WHERE (SID = '$userId')";
+	$query = "SELECT FName,LName FROM Students WHERE SID = '$userId'";
 	$result = mysqli_query($connection, $query);
 	$row = mysqli_fetch_assoc($result);
 	
@@ -21,7 +21,8 @@ function getUsername( $userId ) {
 }
 
 function getNumBadges( $userId ) {
-	return null; //temporary
+	$query="SELECT SID, count(SID)AS NumBadges FROM Student_Badges AS SB WHERE SID='userId'";
+	return $query; 
 }
 
 function getScore( $userId ) {
@@ -32,14 +33,21 @@ function getScore( $userId ) {
 }
 
 function loadEarnedBadges( $userId ) {
-	return null; //temporary
+	$query="SELECT SB.BID, B.NAME, B.Description, B.PointValue, B.FileName  FROM Student_Badges AS SB INNER JOIN Badges AS B ON B.BID = SB.BID WHERE SID = '$userId'";
+	return $query;
 }
 
 function loadAllBadges() {
-	return null; //temporary
+	$query= "SELECT * from Badges";
+	return $query;
+}
+function loadAllEarnedBadges() {
+	$query= "SELECT B.BID, B.Name, B.Description, B.PointValue, B.FileName from Badges AS B INNER JOIN Student_Badges AS SB ON B.BID = SB.BID";
+	return $query;
 }
 
-function loadClassBadges() {
-	return null; //temporary
+function loadClassBadges($class) {
+	$query="SELECT S.Class, B.BID, B.NAME, B.Description, B.FileName FROM Student_Badges AS SB INNER JOIN Badges AS B ON B.BID = SB.BID INNER JOIN Students AS S ON S.SID = S.SID WHERE Class = '$class'";
+	return $query;
 }
 ?>
