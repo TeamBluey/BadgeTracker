@@ -1,10 +1,12 @@
 <?php
+// @Author of functions: Jeffrey Beebe
+// @Author of Queries: Justin Ridgway
 error_reporting(E_ALL);
 require_once('../SQL/dbConn.php');
 
 function getUserInitials( $userId ) {
 	global $connection;
-	$query = "SELECT FName,LName FROM Students WHERE SID = '$userId'";
+	$query = "SELECT FName,LName FROM Students WHERE (SID = '$userId')";
 	$result = mysqli_query($connection, $query);
 	$row = mysqli_fetch_assoc($result);
 	
@@ -24,7 +26,7 @@ function getUsername( $userId ) {
 
 function getNumBadges( $userId ) {
 	global $connection;
-	$query="SELECT SID, count(SID)AS NumBadges FROM Student_Badges AS SB WHERE SID='userId'";
+	$query = "SELECT count(SID) AS NumBadges FROM Student_Badges WHERE (SID = '$userId')";
 	$result = mysqli_query($connection, $query);
 	$row = mysqli_fetch_assoc($result);
 	return $row['NumBadges']; 
