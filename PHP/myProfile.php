@@ -62,15 +62,14 @@ require_once('userUtils.php');
 					<tr>
 						<td>
 							<div class="text-center" id="userPicture">
-								<span id="userInitial"></span>
+								<span id="userInitial"><?php echo getUserInitials($sid);  ?></span>
 								<!-- PHP TO GRAB USER PICTURE -->
 							</div>
 						</td>
 						<td id="userInfo">
 							<h1><?php echo getUsername($sid); ?></h1>
-							<h1>USERNAME</h1>
-							<h3># of Badges Earned:</h3> <!-- PHP TO CALCULATE NUMBER OF BADGES EARNED -->
-							<h3>BadgeTracker Score:</h3> <!-- PHP TO GRAB USERS TOTAL SCORE -->
+							<h3># of Badges Earned: <?php echo getNumBadges($sid);  ?></h3> <!-- PHP TO CALCULATE NUMBER OF BADGES EARNED -->
+							<h3>BadgeTracker Score: <?php echo getScore($sid); ?></h3> <!-- PHP TO GRAB USERS TOTAL SCORE -->
 						</td>
 					</tr>
 				</table>

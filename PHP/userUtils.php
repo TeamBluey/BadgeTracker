@@ -3,6 +3,7 @@ error_reporting(E_ALL);
 require_once('../SQL/dbConn.php');
 
 function getUserInitials( $userId ) {
+	global $connection;
 	$query = "SELECT FName,LName FROM Students WHERE SID = '$userId'";
 	$result = mysqli_query($connection, $query);
 	$row = mysqli_fetch_assoc($result);
@@ -14,6 +15,7 @@ function getUserInitials( $userId ) {
 }
 
 function getUsername( $userId ) {
+	global $connection;
 	$query = "SELECT Username FROM Students WHERE (SID = '$userId')";
 	$result = mysqli_query($connection, $query);
 	$row = mysqli_fetch_assoc($result);
@@ -21,11 +23,15 @@ function getUsername( $userId ) {
 }
 
 function getNumBadges( $userId ) {
+	global $connection;
 	$query="SELECT SID, count(SID)AS NumBadges FROM Student_Badges AS SB WHERE SID='userId'";
-	return $query; 
+	$result = mysqli_query($connection, $query);
+	$row = mysqli_fetch_assoc($result);
+	return $row['NumBadges']; 
 }
 
 function getScore( $userId ) {
+	global $connection;
 	$query = "SELECT Points FROM Students WHERE (SID = '$userId')";
 	$result = mysqli_query($connection, $query);
 	$row = mysqli_fetch_assoc($result);
