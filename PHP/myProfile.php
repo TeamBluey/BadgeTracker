@@ -37,8 +37,13 @@ require_once('userUtils.php');
 	#userInfo { padding-left: 25px; }
 	#userInfo h1, #userInfo h3 { color: #ffffff; margin-top: 10px; }
 	#userInfo h1 { font-weight: bold; text-decoration: underline; }
-	
 	#mainContent { padding-left: 0px; padding-right: 0px; }
+	.earnedTable { text-align: center; }
+	.earnedBadges, .allBadges { 
+		box-shadow: 5px 0px 10px #000, -5px 0px 10px #000; 
+		margin: 10px;
+		padding: 5px; 
+	}
 	.nav { background-color: #d9d9d9; }
 	.nav-tabs { font-weight: bold; }
 	.nav-tabs li.active { text-decoration: underline; }
@@ -91,13 +96,10 @@ require_once('userUtils.php');
 			<div class="tab-pane fade in active" id="myBadges">
 				<h3>My Earned Badges</h3>
 				<?php echo loadEarnedBadges($sid); ?>
-				<p>Create php function loadEarnedBadges() to return a ul containing all badges earned by the user</p>
-				<!-- PHP TO DISPLAY UL OF ALL BADGES EARNED BY USER -->
 			</div>
 			<div class="tab-pane fade" id="allBadges">
 				<h3>All Badges Available To Be Earned</h3>
-				<p>Create php function loadAllBadges() to return a ul of all badges available for the user to earn</p>
-				<!-- PHP TO DISPLAY UL OF ALL BADGES AVAILABLE TO BE EARNED -->
+				<?php echo loadAllBadges(); ?>
 			</div>
 			<div class="tab-pane fade" id="classBadges">
 				<h3>Badges Earned By Others</h3>

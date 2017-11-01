@@ -42,24 +42,36 @@ function getScore( $userId ) {
 
 function loadEarnedBadges( $userId ) {
 	global $connection;
-	$table = "<table>\n<tr>\n";
+	$table = "<table class='earnedTable'>\n<tr>\n";
 	$query = "SELECT SB.BID, B.NAME, B.Description, B.PointValue, B.FileName FROM Student_Badges AS SB INNER JOIN Badges AS B ON B.BID = SB.BID WHERE SID = '$userId'";
-	$result = mysqli_query($connection, $query);
-	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-	foreach ($row as $item) {
-		$image = $item['B.FileName'];
-		$name = $item['B.Name'];
-		$description = $item['B.Description'];
-		$value = $item['B.PointValue'];
-		$table .= "<td><img src='Images/$image.png'><p>$name</p><p>$description</p><p>$value</p></td>\n";
+	if ( $result = mysqli_query($connection, $query) ) {
+		while ( $row = mysqli_fetch_assoc($result) ) {
+			$image = $row['FileName'];
+			$name = $row['NAME'];
+			$description = $row['Description'];
+			$value = $row['PointValue'];
+			$table .= "<td><div class='earnedBadges'><img src='../Images/$image'><p>Name: $name</p><p>Description: $description</p><p>Point Value: $value</p></div></td>\n";
+		}
 	}
 	$table .= "</tr>\n</table>";
 	return $table;
 }
 
 function loadAllBadges() {
-	$query= "SELECT * from Badges";
-	return $query;
+	global $connection;
+	$table = "<table class='earnedTable'>\n<tr>\n";
+	$query = "SELECT NAME, Description, PointValue, FileName FROM Badges";
+	if ( $result = mysqli_query($connection, $query) ) {
+		while ( $row = mysqli_fetch_assoc($result) ) {
+			$image = $row['FileName'];
+        	$name = $row['NAME'];
+        	$description = $row['Description'];
+        	$value = $row['PointValue'];
+        	$table .= "<td><div class='allBadges'><img src='../Images/$image'><p>Name: $name</p><p>Description: $description</p><p>Point Value: $value</p></div></td>";
+		}
+	}
+	$table .= "</tr>\n</table>";
+	return $table;
 }
 function loadAllEarnedBadges() {
 	$query= "SELECT B.BID, B.Name, B.Description, B.PointValue, B.FileName from Badges AS B INNER JOIN Student_Badges AS SB ON B.BID = SB.BID";
