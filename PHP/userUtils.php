@@ -41,8 +41,20 @@ function getScore( $userId ) {
 }
 
 function loadEarnedBadges( $userId ) {
-	$query="SELECT SB.BID, B.NAME, B.Description, B.PointValue, B.FileName  FROM Student_Badges AS SB INNER JOIN Badges AS B ON B.BID = SB.BID WHERE SID = '$userId'";
-	return $query;
+	global $connection;
+	$table = "<table>\n<tr>\n";
+	$query = "SELECT SB.BID, B.NAME, B.Description, B.PointValue, B.FileName FROM Student_Badges AS SB INNER JOIN Badges AS B ON B.BID = SB.BID WHERE SID = '$userId'";
+	$result = mysqli_query($connection, $query);
+	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+	foreach ($row as $item) {
+		$image = $item['B.FileName'];
+		$name = $item['B.Name'];
+		$description = $item['B.Description'];
+		$value = $item['B.PointValue'];
+		$table .= "<td><img src='Images/$image.png'><p>$name</p><p>$description</p><p>$value</p></td>\n";
+	}
+	$table .= "</tr>\n</table>";
+	return $table;
 }
 
 function loadAllBadges() {

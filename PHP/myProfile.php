@@ -90,6 +90,7 @@ require_once('userUtils.php');
 		<div class="tab-content">
 			<div class="tab-pane fade in active" id="myBadges">
 				<h3>My Earned Badges</h3>
+				<?php echo loadEarnedBadges($sid); ?>
 				<p>Create php function loadEarnedBadges() to return a ul containing all badges earned by the user</p>
 				<!-- PHP TO DISPLAY UL OF ALL BADGES EARNED BY USER -->
 			</div>
