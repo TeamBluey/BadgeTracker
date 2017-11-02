@@ -45,18 +45,18 @@
                     <!-- ACTUALLY GRABBING FROM DB -->
                     <?php
                         require_once('../SQL/dbConn.php');
-                        $query = "SELECT * FROM Student_Badges WHERE Status = 'Pending'";
+                        $query = "SELECT * FROM Pending_Badges";
                         $result = mysqli_query($connection, $query);
                         if (mysqli_num_rows($result) > 0){
                             while($row = mysqli_fetch_assoc($result)){
                                 //Get Name from SID
                                 $sid = $row['SID'];
-                                $nameQ = "SELECT FName, LName FROM Students WHERE SID = '$sid'";
+                                $nameQ = "SELECT FName, LName FROM Pending_Badges WHERE SID = '$sid'";
                                 $nameResult = mysqli_query($connection, $nameQ);
                                 $nameRow = mysqli_fetch_row($nameResult);
                                 //Get Decription from BID
                                 $bid = $row['BID'];
-                                $bidQ = "SELECT Description FROM Badges WHERE BID = '$bid'";
+                                $bidQ = "SELECT Description FROM Pending_Badges WHERE BID = '$bid'";
                                 $bidResult = mysqli_query($connection, $bidQ);
                                 $bidRow = mysqli_fetch_row($bidResult);
                                 echo "<tr>";
