@@ -40,9 +40,11 @@ require_once('userUtils.php');
 	#mainContent { padding-left: 0px; padding-right: 0px; }
 	.earnedTable { text-align: center; }
 	.earnedBadges, .allBadges { 
-		box-shadow: 5px 0px 10px #000, -5px 0px 10px #000; 
+		box-shadow: 3px 0px 5px red, -3px 0px 5px red; 
 		margin: 10px;
-		padding: 5px; 
+		padding: 5px;
+		width: 250px;
+		height: 225px; 
 	}
 	.nav { background-color: #d9d9d9; }
 	.nav-tabs { font-weight: bold; }
@@ -57,7 +59,6 @@ require_once('userUtils.php');
 		.tab-content { padding-left: 7px; padding-right: 7px; }
 	}
 	</style>
-	
 </head>
 <body>
 	<div class="container-fluid" id="headerContent">
@@ -114,4 +115,3 @@ require_once('userUtils.php');
 	</div> <!-- end div #mainContent -->
 </body> <!-- end body -->
 </html> <!-- end html -->
-
