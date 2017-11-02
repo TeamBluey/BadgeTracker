@@ -74,8 +74,20 @@ function loadAllBadges() {
 	return $table;
 }
 function loadAllEarnedBadges() {
+	global $connection;
+	$table = "<table class='earnedTable'>\n<tr>\n";
 	$query= "SELECT B.BID, B.Name, B.Description, B.PointValue, B.FileName from Badges AS B INNER JOIN Student_Badges AS SB ON B.BID = SB.BID";
-	return $query;
+	if ( $result = mysqli_query($connection, $query) ) {
+		while ( $row = mysqli_fetch_assoc($result) ) {
+			$image = $row['FileName'];
+			$name = $row['Name'];
+			$description = $row['Description'];
+			$value = $row['PointValue'];
+			$table .= "<td><div class='earnedBadges'><img src='../Images/$image'><p>Name: $name</p><p>Description: $description</p><p>Point Value: $value</p></div></td>";
+		}
+	}
+	$table .= "</tr>\n</table>";
+	return $table;
 }
 
 function loadClassBadges($class) {

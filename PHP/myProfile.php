@@ -103,8 +103,7 @@ require_once('userUtils.php');
 			</div>
 			<div class="tab-pane fade" id="classBadges">
 				<h3>Badges Earned By Others</h3>
-				<p>Create php function loadClassBadges() to return a ul of the badges earned by classmates</p>
-				<!-- PHP TO DISPLAY UL OF ALL BADGES EARNED BY OTHERS -->
+				<?php echo loadAllEarnedBadges($sid); ?>
 			</div>
 			<div class="tab-pane fade" id="requestBadge">
 				<h3>Submit Request For Badge</h3>
