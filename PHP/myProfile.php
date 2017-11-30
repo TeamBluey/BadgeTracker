@@ -38,7 +38,8 @@ require_once('userUtils.php');
 	#userInfo h1, #userInfo h3 { color: #ffffff; margin-top: 10px; }
 	#userInfo h1 { font-weight: bold; text-decoration: underline; }
 	#mainContent { padding-left: 0px; padding-right: 0px; }
-	.earnedTable { text-align: center; }
+	.earnedTable { text-align: center; display: block; }
+	.earnedTable td { display: inline-block; }
 	.earnedBadges, .allBadges { 
 		box-shadow: 3px 0px 5px red, -3px 0px 5px red; 
 		margin: 10px;
@@ -87,9 +88,8 @@ require_once('userUtils.php');
 			<div class="col-sm-12">
 				<ul class="nav nav-tabs">
 					<li class="active"><a data-toggle="tab" href="#myBadges">My Badges</a></li>
-					<li><a data-toggle="tab" href="#allBadges">All Available Badges</a></li>
+					<li><a data-toggle="tab" href="#allBadges">All Available Badges/Submit Badge Request</a></li>
 					<li><a data-toggle="tab" href="#classBadges">Classmate's Badges</a></li>
-					<li><a data-toggle="tab" href="#requestBadge">Request Badge</a></li>
 				</ul>
 			</div>
 		</div>
@@ -105,11 +105,6 @@ require_once('userUtils.php');
 			<div class="tab-pane fade" id="classBadges">
 				<h3>Badges Earned By Others</h3>
 				<?php echo loadAllEarnedBadges($sid); ?>
-			</div>
-			<div class="tab-pane fade" id="requestBadge">
-				<h3>Submit Request For Badge</h3>
-				<p>Create a form for the user to submit a badge request and the corresponding php handler to add the request to the pending badges list</p>
-				<!-- FORM FOR USER TO SUBMIT A REQUEST FOR BADGE THEY BELIEVE THEY'VE EARNED -->
 			</div>
 		</div>
 	</div> <!-- end div #mainContent -->
