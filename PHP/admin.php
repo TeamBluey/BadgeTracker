@@ -43,32 +43,34 @@
                     </thead>
                     <tbody>
                     <!-- ACTUALLY GRABBING FROM DB -->
+                    <form action="conDenyPending.php" method="get">
                     <?php
                         require_once('../SQL/dbConn.php');
                         $query = "SELECT * FROM Pending_Badges";
                         $result = mysqli_query($connection, $query);
                         if (mysqli_num_rows($result) > 0){
                             while($row = mysqli_fetch_assoc($result)){
-                                //Get Name from SID
                                 $sid = $row['SID'];
-                                $nameQ = "SELECT FName, LName FROM Pending_Badges WHERE SID = '$sid'";
-                                $nameResult = mysqli_query($connection, $nameQ);
-                                $nameRow = mysqli_fetch_row($nameResult);
-                                //Get Decription from BID
                                 $bid = $row['BID'];
-                                $bidQ = "SELECT Description FROM Pending_Badges WHERE BID = '$bid'";
-                                $bidResult = mysqli_query($connection, $bidQ);
-                                $bidRow = mysqli_fetch_row($bidResult);
+                                $fname = $row['Fname'];
+                                $lname = $row['Lname'];
+                                $bidQ = $row['Description'];
+                                $date = $row['TimeStamp'];
+                                //echo $sid;
+                                //echo $bid;
                                 echo "<tr>";
-                                echo "<td>" . $nameRow[0] . " " . $nameRow[1] . "</td>";
-                                echo "<td>" . $bidRow[0] . "</td>";
-                                echo "<td>" . $row['Date'] . "</td>";
-                                echo "<td><input type='submit' value='Confirm'></td>";
-                                echo "<td><input type='submit' value='Delete' class='dangerBtn'></td>";
+                                echo "<td>" . $fname . " " . $lname . "</td>";
+                                echo "<td>" . $bidQ . "</td>";
+                                echo "<td>" . $date . "</td>";
+                                //echo "<td><input type='submit' value='Confirm'></td>";
+                                //echo "<td><input type='submit' value='Delete' class='dangerBtn'></td>";
+                                echo "<td><button type='submit' value='CONFIRM-" . $sid . "-" . $bid . "'>Confirm</td>";
+                                echo "<td><button type='submit' value='DENY-" . $sid . "-" . $bid . "' class='dangerBtn'>Deny</td>";
                                 echo "</tr>";
                             }
                         }
                     ?>
+                    </form>
                     </tbody>
                 </table>
             </div>

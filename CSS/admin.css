@@ -39,7 +39,7 @@ thead tr:nth-child(2) {
     border-bottom: 1px solid black;
     font-weight: bold;
 }
-tbody tr:nth-child(odd) {
+tbody tr:nth-child(even) {
     background-color: lightgrey;
 }
 td {
