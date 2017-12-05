@@ -43,7 +43,7 @@
                     </thead>
                     <tbody>
                     <!-- ACTUALLY GRABBING FROM DB -->
-                    <form action="conDenyPending.php" method="get">
+                    <form action="conDenyPending.php" method="POST">
                     <?php
                         require_once('../SQL/dbConn.php');
                         $query = "SELECT * FROM Pending_Badges";
@@ -64,8 +64,8 @@
                                 echo "<td>" . $date . "</td>";
                                 //echo "<td><input type='submit' value='Confirm'></td>";
                                 //echo "<td><input type='submit' value='Delete' class='dangerBtn'></td>";
-                                echo "<td><button type='submit' value='CONFIRM-" . $sid . "-" . $bid . "'>Confirm</td>";
-                                echo "<td><button type='submit' value='DENY-" . $sid . "-" . $bid . "' class='dangerBtn'>Deny</td>";
+                                echo "<td><button type='submit' name='pendInfo' value='CONFIRM-" . $sid . "-" . $bid . "'>Confirm</td>";
+                                echo "<td><button type='submit' name='pendInfo' value='DENY-" . $sid . "-" . $bid . "' class='dangerBtn'>Deny</td>";
                                 echo "</tr>";
                             }
                         }
