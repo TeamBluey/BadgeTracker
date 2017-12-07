@@ -3,6 +3,7 @@
 // @Author of Queries: Justin Ridgway
 error_reporting(E_ALL);
 require_once('../SQL/dbConn.php');
+session_start();
 
 function getUserInitials( $userId ) {
 	global $connection;
@@ -57,6 +58,27 @@ function loadEarnedBadges( $userId ) {
 	return $table;
 }
 
+function loadBadgeInfo($name) {
+	global $connection;
+	$sid = $SESSION['SID'];
+	$query = "SELECT BID, NAME, Description, PointValue, FileName FROM Badges WHERE Name = '$name'";
+	if ( $result = mysqli_query($connection, $query) ) {
+		while ( $row = mysqli_fetch_assoc($result) ) {
+			$bid = $row['BID'];
+			insertIntoPending($sid, $bid);
+		}
+	}
+}
+
+function insertIntoPending($sid, $bid) {
+	global $connection;
+	$query = "Insert Into Student_Badges (SID, BID, Status) Values ('$sid', '$bid', 'Pending')";
+	if ( $result = mysqli_query($connection, $query) )
+		echo "<script type='text/javascript'>alert('Badge Successfully Requested');</script>";
+	else
+		echo "<script type='text/javascript'>alert('Error Requesting Badge, Please Contact Administrator');</script>";
+}
+
 function loadAllBadges() {
 	global $connection;
 	$table = "<table class='earnedTable'>\n<tr>\n";
@@ -67,7 +89,7 @@ function loadAllBadges() {
         	$name = $row['NAME'];
         	$description = $row['Description'];
         	$value = $row['PointValue'];
-        	$table .= "<td><div class='allBadges'><img src='../Images/$image'><p>Name: $name</p><p>Description: $description</p><p>Point Value: $value</p></div></td>";
+			$table .= "<td><div class='allBadges'><img src='../Images/$image' onclick='requestBadge(\"$name\");'><p>Name: $name</p><p>Description: $description</p><p>Point Value: $value</p></div></td>";
 		}
 	}
 	$table .= "</tr>\n</table>";
