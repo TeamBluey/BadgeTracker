@@ -109,4 +109,16 @@ require_once('userUtils.php');
 		</div>
 	</div> <!-- end div #mainContent -->
 </body> <!-- end body -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script>
+function requestBadge(name) {
+	var $name = name;
+	jQuery.ajax({
+		type:	"POST",
+		url:	"userUtils.php",
+		data:	{"loadBadgeInfo": $name},
+		success: function(response) { alert(response); }
+	});
+}
+</script>
 </html> <!-- end html -->

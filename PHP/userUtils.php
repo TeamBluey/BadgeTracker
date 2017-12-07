@@ -60,7 +60,7 @@ function loadEarnedBadges( $userId ) {
 
 function loadBadgeInfo($name) {
 	global $connection;
-	$sid = $SESSION['SID'];
+	$sid = $_SESSION['SID'];
 	$query = "SELECT BID, NAME, Description, PointValue, FileName FROM Badges WHERE Name = '$name'";
 	if ( $result = mysqli_query($connection, $query) ) {
 		while ( $row = mysqli_fetch_assoc($result) ) {
@@ -74,9 +74,9 @@ function insertIntoPending($sid, $bid) {
 	global $connection;
 	$query = "Insert Into Student_Badges (SID, BID, Status) Values ('$sid', '$bid', 'Pending')";
 	if ( $result = mysqli_query($connection, $query) )
-		echo "<script type='text/javascript'>alert('Badge Successfully Requested');</script>";
+		echo "Badge Successfully Requested";
 	else
-		echo "<script type='text/javascript'>alert('Error Requesting Badge, Please Contact Administrator');</script>";
+		echo "Error Requesting Badge, Please Contact Administrator";
 }
 
 function loadAllBadges() {
@@ -115,5 +115,9 @@ function loadAllEarnedBadges() {
 function loadClassBadges($class) {
 	$query="SELECT S.Class, B.BID, B.NAME, B.Description, B.FileName FROM Student_Badges AS SB INNER JOIN Badges AS B ON B.BID = SB.BID INNER JOIN Students AS S ON S.SID = S.SID WHERE Class = '$class'";
 	return $query;
+}
+
+if (isset($_POST['loadBadgeInfo'])) {
+	echo loadBadgeInfo($_POST['loadBadgeInfo']);
 }
 ?>
