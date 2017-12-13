@@ -21,8 +21,8 @@
         <h3 class='className'>Web II</h3>
     </div>
     <div class='tabBar'>
-        <button class='pendingBtn'>Pending Badges</button>
-        <button class='completeBtn'>Completed Badges</button>
+        <button class='pendingBtn pageButton'>Pending Badges</button>
+        <button class='completeBtn pageButton'>Completed Badges</button>
         <!-- <button class='sqlBtn'>SQL Statements</button> -->
     </div>
     <div class="container-fluid pendingBadgesBody">
@@ -38,7 +38,7 @@
                         <td>Badge Description</td>
                         <td>Date</td>
                         <td>Accept</td>
-                        <td>Delete</td>
+                        <td>Deny</td>
                     </tr>
                     </thead>
                     <tbody>

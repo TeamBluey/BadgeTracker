@@ -45,7 +45,7 @@ tbody tr:nth-child(even) {
 td {
     padding: 6px;
 }
-.dangerBtn {
+tbody tr td .dangerBtn {
     background-color: red;
     border: none;
     color: white;

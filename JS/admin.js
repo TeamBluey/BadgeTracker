@@ -29,7 +29,7 @@ $(document).ready(function(){
 });
 
 function updateTabs(tabName, target){
-    $("button").css("background-color", "lightgray");
+    $(".pageButton").css("background-color", "lightgray");
     // $(".pendingBadgesBody").css("display", "none");
     $(".pendingBadgesBody").fadeOut(300);
     // $(".pendingBadgesBody").css("display", "none");
