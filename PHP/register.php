@@ -98,7 +98,7 @@
             $password = hash("sha256", $password1);
 			$query = "INSERT INTO Students(SID, Password, Username, FName, LName, ClassRank, Email) VALUES($sid,'$password','$username','$fName', '$LName', '$rank', '$email')";
 			if(mysqli_query($connection, $query)){
-                echo "<span class='registrationMessage green'>Registration successful, you can now <a href='login.php'>login!</a></span>";
+                echo "<span class='registrationMessage'>Registration successful, you can now <a href='login.php'>login!</a></span>";
 			}
 			else {
 				echo "<span class='registrationMessage red'>Error, please try again later.</span>";
@@ -139,8 +139,8 @@
                     <input type="text" name="username" placeholder='Username' class='typeInputs' requred>
                     <input type="text" name="FName" placeholder='First Name' class='typeInputs' required>
                     <input type="text" name="LName" placeholder='Last Name' class='typeInputs' required>
-                    <input type="password" name="pwd" placeholder='Password' class='typeInputs' required>
-                    <input type="password" name="pwdConfirm" placeholder='Confirm Password' class='typeInputs' required>
+                    <input type="password" name="pwd" id="password" placeholder='Password' class='typeInputs' required>
+                    <input type="password" name="pwdConfirm" id="confirm_password" placeholder='Confirm Password' class='typeInputs' required>
                     <select name="rank" id="" class='typeInputs'>
                         <option value="fr">Freshman</option>
                         <option value="so">Sophomore</option>
@@ -154,5 +154,6 @@
             </div>
         </div>
     </div>
+    <script src="../JS/register.js"></script>
 </body>
 </html>
