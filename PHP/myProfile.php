@@ -100,6 +100,8 @@ require_once('userUtils.php');
 			</div>
 			<div class="tab-pane fade" id="allBadges">
 				<h3>All Badges Available To Be Earned</h3>
+				<h5>To Request a Badge, Simply Click on the Badge You Wish to Earn</h5>
+				<h5>You will recieve an error if attempting to request an already requested or earned badge</h5>
 				<?php echo loadAllBadges(); ?>
 			</div>
 			<div class="tab-pane fade" id="classBadges">
@@ -112,13 +114,16 @@ require_once('userUtils.php');
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script>
 function requestBadge(name) {
-	var $name = name;
-	jQuery.ajax({
-		type:	"POST",
-		url:	"userUtils.php",
-		data:	{"loadBadgeInfo": $name},
-		success: function(response) { alert(response); }
-	});
+	var conf = confirm("Are you sure you wish to request this badge?");
+	if (conf == true) {
+		var $name = name;
+		jQuery.ajax({
+			type:	"POST",
+			url:	"userUtils.php",
+			data:	{"loadBadgeInfo": $name},
+			success: function(response) { alert(response); }
+		});
+	}
 }
 </script>
 </html> <!-- end html -->

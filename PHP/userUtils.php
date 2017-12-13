@@ -27,7 +27,7 @@ function getUsername( $userId ) {
 
 function getNumBadges( $userId ) {
 	global $connection;
-	$query = "SELECT count(SID) AS NumBadges FROM Student_Badges WHERE (SID = '$userId')";
+	$query = "SELECT count(SID) AS NumBadges FROM Student_Badges WHERE (SID = '$userId') AND (Status = 'Achieved')";
 	$result = mysqli_query($connection, $query);
 	$row = mysqli_fetch_assoc($result);
 	return $row['NumBadges']; 
@@ -44,7 +44,7 @@ function getScore( $userId ) {
 function loadEarnedBadges( $userId ) {
 	global $connection;
 	$table = "<table class='earnedTable'>\n<tr>\n";
-	$query = "SELECT SB.BID, B.NAME, B.Description, B.PointValue, B.FileName FROM Student_Badges AS SB INNER JOIN Badges AS B ON B.BID = SB.BID WHERE SID = '$userId'";
+	$query = "SELECT SB.BID, B.NAME, B.Description, B.PointValue, B.FileName FROM Student_Badges AS SB INNER JOIN Badges AS B ON B.BID = SB.BID WHERE SID = '$userId' and Status = 'Achieved'";
 	if ( $result = mysqli_query($connection, $query) ) {
 		while ( $row = mysqli_fetch_assoc($result) ) {
 			$image = $row['FileName'];
