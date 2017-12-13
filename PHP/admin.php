@@ -23,7 +23,7 @@
     <div class='tabBar'>
         <button class='pendingBtn'>Pending Badges</button>
         <button class='completeBtn'>Completed Badges</button>
-        <button class='sqlBtn'>SQL Statements</button>
+        <!-- <button class='sqlBtn'>SQL Statements</button> -->
     </div>
     <div class="container-fluid pendingBadgesBody">
         <div class="row">
@@ -122,7 +122,7 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid sqlBody">
+    <!-- <div class="container-fluid sqlBody">
         <div class="row">
             <div class="col-xs-12 col-sm-offset-2 col-sm-8 tableDiv">
                 <h2 class='sqlTitle'>Run SQL</h2>
@@ -137,6 +137,6 @@
                 </p>
             </div>
         </div>
-    </div>
+    </div> -->
 </body>
 </html>
