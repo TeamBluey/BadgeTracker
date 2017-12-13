@@ -111,7 +111,7 @@
                                 echo "<tr>";
                                 echo "<td>" . $nameRow[0] . " " . $nameRow[1] . "</td>";
                                 echo "<td>" . $bidRow[0] . "</td>";
-                                echo "<td>" . $row['Date'] . "</td>";
+                                echo "<td>" . $row['TimeStamp'] . "</td>";
                                 echo "<td>" . $bidRow[1] . "</td>";
                                 echo "</tr>";
                             }
